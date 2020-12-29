@@ -2,7 +2,7 @@
 function setup() {
   createCanvas(innerWidth, innerHeight);
   background(255)
-  frameRate(1)
+  frameRate(10)
 
 
   for (let i = 0; i < 1500; i++) {
@@ -30,7 +30,7 @@ function draw() {
    for (let i = 0; i < 1500; i++) {
    
    
-    if(i%30 == 0) {
+    if(i%10 == 0) {
       fill(random(255),random(255),random(255))
     } else {
       fill(255)
