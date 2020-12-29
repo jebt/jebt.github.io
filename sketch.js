@@ -8,7 +8,7 @@ function setup() {
   for (let i = 0; i < 1500; i++) {
    
    
-    if(i%30 == 0) {
+    if(i%20 == 0) {
       fill(random(255),random(255),random(255))
     } else {
       fill(255)
