@@ -3,6 +3,7 @@ function setup() {
   background(255)
   frameRate(60)
   tint(255);
+  noStroke();
 }
 
 function draw() {
