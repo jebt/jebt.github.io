@@ -1,7 +1,7 @@
 function setup() {
   createCanvas(innerWidth, innerHeight);
   background(255)
-  frameRate(60)
+  frameRate(1)
   tint(255);
 }
 
