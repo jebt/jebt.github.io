@@ -2,7 +2,6 @@ function setup() {
   createCanvas(innerWidth, innerHeight);
   background(255)
   frameRate(60)
-  tint(255);
   noStroke();
 }
 
@@ -13,7 +12,6 @@ function draw() {
     } else {
       fill(255)
     }
-    stroke(0, random(0,255));
     rect(random(1,width), random(1,height),random(5,250), random(5,250))
   }
 }
