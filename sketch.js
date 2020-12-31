@@ -1,5 +1,7 @@
 function setup() {
-  createCanvas(innerWidth, innerHeight);
+  createCanvas(innerWidth, innerHeight, WEBGL);
+  textSize(width / 3);
+  textAlign(CENTER, CENTER);
   frameRate(1)
   stroke(255);
 }
@@ -14,4 +16,11 @@ function draw() {
     }
     rect(random(1,width), random(1,height),random(5,250), random(5,250))
   }
+  
+    let time = millis();
+  rotateX(time / 1000);
+  rotateZ(time / 1234);
+  text('p5.js', 0, 0);
+
+  
 }
