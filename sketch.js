@@ -10,12 +10,12 @@ function setup() {
   textSize(width / 3);
   textAlign(CENTER, CENTER);
   frameRate(1)
-  stroke(255);
+  stroke(0);
 }
 
 function draw() {
   //background(255);
-  background(0);
+  background(100);
    for (let i = 0; i < 1500; i++) {
     if(i%10 == 0) {
       fill(random(255),random(255),random(255))
