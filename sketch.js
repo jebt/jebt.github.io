@@ -7,7 +7,7 @@ function setup() {
   createCanvas(innerWidth, innerHeight);
   //createCanvas(100, 100, WEBGL);
 //   textFont(inconsolata);
-  textSize(width / 3);
+  textSize(width / 100);
   textAlign(CENTER, CENTER);
   frameRate(1)
   stroke(0);
