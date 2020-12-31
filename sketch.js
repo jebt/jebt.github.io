@@ -15,12 +15,10 @@ function draw() {
       fill(255)
     }
     rect(random(1,width), random(1,height),random(5,250), random(5,250))
+     
   }
-  
-    let time = millis();
+  let time = millis();
   rotateX(time / 1000);
   rotateZ(time / 1234);
   text('welkom op roelants thuis pagina!!', 0, 0);
-
-  
 }
