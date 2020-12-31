@@ -17,7 +17,7 @@ function draw() {
   //background(255);
   background(100);
    for (let i = 0; i < 1500; i++) {
-    if(i%10 == 0) {
+    if(i%7 == 0) {
       fill(random(255),random(255),random(255))
     } else {
       fill(255)
