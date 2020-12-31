@@ -1,7 +1,7 @@
 function setup() {
   createCanvas(innerWidth, innerHeight);
   frameRate(1)
-  noStroke();
+  stroke(255);
 }
 
 function draw() {
