@@ -7,7 +7,7 @@ function setup() {
   createCanvas(innerWidth, innerHeight);
   //createCanvas(100, 100, WEBGL);
 //   textFont(inconsolata);
-  textSize(width / 100);
+  textSize(width / 50);
   textAlign(CENTER, CENTER);
   frameRate(1)
   stroke(0);
@@ -28,5 +28,5 @@ function draw() {
 //   let time = millis();
 //   rotateX(time / 1000);
 //   rotateZ(time / 1234);
-text('welkom op roelants thuis pagina!!', 0, 0);
+text('welkom op roelants thuis pagina!!', width/100, height/100);
 }
