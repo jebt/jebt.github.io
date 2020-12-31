@@ -1,6 +1,12 @@
+let inconsolata;
+function preload() {
+  inconsolata = loadFont('Inconsolata-Black.otf');
+}
+
 function setup() {
   //createCanvas(innerWidth, innerHeight);
   createCanvas(100, 100, WEBGL);
+  textFont(inconsolata);
   textSize(width / 3);
   textAlign(CENTER, CENTER);
   frameRate(1)
