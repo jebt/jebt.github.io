@@ -1,5 +1,6 @@
 function setup() {
-  createCanvas(innerWidth, innerHeight, WEBGL);
+  //createCanvas(innerWidth, innerHeight);
+  createCanvas(100, 100, WEBGL);
   textSize(width / 3);
   textAlign(CENTER, CENTER);
   frameRate(1)
