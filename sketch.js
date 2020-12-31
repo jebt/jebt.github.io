@@ -28,5 +28,5 @@ function draw() {
 //   let time = millis();
 //   rotateX(time / 1000);
 //   rotateZ(time / 1234);
-text('welkom op roelants thuis pagina!!', width/100, height/100);
+text('welkom op roelants thuis pagina!!', width/100, height/100, width/2, height/2);
 }
