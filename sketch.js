@@ -20,7 +20,7 @@ function draw() {
     let time = millis();
   rotateX(time / 1000);
   rotateZ(time / 1234);
-  text('p5.js', 0, 0);
+  text('welkom op roelants thuis pagina!!', 0, 0);
 
   
 }
