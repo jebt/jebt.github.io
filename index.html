@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <!--
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.12/p5.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.12/addons/p5.dom.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.12/addons/p5.sound.min.js"></script>
-    <script type="text/javascript" src="sketch.js?v=12345678"></script>
-    test
-    <script>document.write("keppie")</script>
--->
- <script>   
-    function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    //xmlHttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-   
-   let url = "https://mynano.ninja/api/blockcount";
-   url = "https://europe-west1-skilful-vertex-138423.cloudfunctions.net/function-2";
-   document.write(httpGet(url));
-   </script>
-   
-   
-   
+<html lang="">
 
-  <style> body {padding: 0; margin: 0;} </style>
-  </head>
-  <body>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nanopixels</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+
+  <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script> -->
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+  <script src="/p5lib/p5.js"></script>
+  <!-- <script src="/p5lib/addons/p5.sound.min.js"></script> -->
+  <script src="sketch.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
 </html>
