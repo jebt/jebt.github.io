@@ -13,12 +13,23 @@
           </div>
         <p id="intro">These thoughts are brand new!</p>
         <p>
-            <button onclick="getBrandNewSentence()">Inspire me</button>
+            <!-- <button onclick="getBrandNewSentence()">Inspire me</button> -->
+            <button onclick="mockBNS()">Inspire me</button> <!-- fake to limit api calls (that actually cost money) to GPT3 -->
         </p>
         <p id="sentence"></p>
         <script>
+            // fake Brand New Sentence to limit API calls (which cost actual money) while testing
+            async function mockBNS() {
+                displaySentence("Pondering...🤔");
+                await new Promise(r => setTimeout(r, 1000));
+                import('FileSync');
+                const contents = fs.readFileSync("thoughts.txt", 'utf-8').split('\n');
+                var item = contents[Math.floor(Math.random()*items.length)];
+                displaySentence(item);
+            }
+            
             function getBrandNewSentence() {
-                displaySentence("Pondering...🤔")
+                displaySentence("Pondering...🤔");
                 var url = "https://europe-west1-skilful-vertex-138423.cloudfunctions.net/brand_new_sentence";
                 var request = new XMLHttpRequest();
                 request.open('GET', url, true);
