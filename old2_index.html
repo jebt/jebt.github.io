@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Brand New Thought</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div class="row">
+            <div class="column">
+                <img src="images/bnt1.png" alt="Brand New Thought image 1" width="100" height="100">
+                <img src="images/bnt2.png" alt="Brand New Thought image 2" width="100" height="100">
+            </div>
+          </div>
+        <p id="intro">These thoughts are brand new!</p>
+        <p>
+            <!-- <button onclick="getBrandNewSentence()">Inspire me</button> -->
+            <button onclick="mockBNS()">Inspire me</button> <!-- fake to limit api calls (that actually cost money) to GPT3 -->
+        </p>
+        <p id="sentence"></p>
+        <script>
+            // fake Brand New Sentence to limit API calls (which cost actual money) while testing
+            async function mockBNS() {
+                displaySentence("Pondering...🤔");
+                await new Promise(r => setTimeout(r, 1000));
+                import('FileSync');
+                const contents = fs.readFileSync("thoughts.txt", 'utf-8').split('\n');
+                var item = contents[Math.floor(Math.random()*items.length)];
+                displaySentence(item);
+            }
+            
+            function getBrandNewSentence() {
+                displaySentence("Pondering...🤔");
+                var url = "https://europe-west1-skilful-vertex-138423.cloudfunctions.net/brand_new_sentence";
+                var request = new XMLHttpRequest();
+                request.open('GET', url, true);
+                request.onload = function() {
+                    if (request.status >= 200 && request.status < 400) {
+                        displaySentence(request.responseText)
+                    } else {
+                        console.log("Error in network request: " + request.statusText);
+                    }
+                };
+                request.onerror = function() {
+                    console.log("Error in network request: " + request.statusText);
+                };
+                request.send();
+            }
+            function displaySentence(sentence) {
+                document.getElementById("sentence").innerHTML = sentence;
+            }
+        </script>
+        <div class="row">
+            <div class="column">
+                <img src="images/bnt3.png" alt="Brand New Thought image 3" width="100" height="100">
+                <img src="images/bnt4.png" alt="Brand New Thought image 4" width="100" height="100">
+            </div>
+          </div>
+    </body>
+</html>
