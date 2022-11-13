@@ -15,5 +15,13 @@ flutter in html frame
 
 
 favicon
+change other icons as well that are used (flutter, different sizes, tranparent and not)
+
+
+
+change the png images to a smaller format
+
+
+
 
 
