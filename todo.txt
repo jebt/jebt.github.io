@@ -23,5 +23,5 @@ change the png images to a smaller format
 
 
 
-
+uitzoeken hoe het zit met asset images location zodat ze automatisch mee worden genomen in de build (pubspec.yml???)
 
