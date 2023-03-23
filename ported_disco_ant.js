@@ -137,7 +137,8 @@ function changePixel() {
 
 function setup() {
   frameRate(30);
-  createCanvas(600, 600);
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('sketch-holder');
 
   // preset(0);
   img = createImage(width, height);
@@ -251,4 +252,8 @@ function keyPressed() {
     loop();
   }
 }
+
+// function windowResized() {
+//     resizeCanvas(windowWidth, windowHeight);
+// }
 
