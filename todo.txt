@@ -1,5 +1,6 @@
 About page (on web make it open in same tab instead of new tab?)
 Style transfered pic of myself on about page
+make it part of flutter app!?
 
 
 Good domain name
@@ -18,10 +19,31 @@ favicon
 change other icons as well that are used (flutter, different sizes, tranparent and not)
 
 
-
+disco_ant_195 op web load op dit moment niet op phone in chrome (wel op desktop in chrome) ???
 change the png images to a smaller format
+reel met zwarte achtergrond met verschillende disco ant en evt andere afbeeldingen met zwarte achtergrond???? (geen lelijke vierkanten)
 
 
 
 uitzoeken hoe het zit met asset images location zodat ze automatisch mee worden genomen in de build (pubspec.yml???)
+
+
+
+Om de een of andere reden als je op phone chrome browser version aanzet krijg je bug waarbij niet alles goed wordt geladen??
+
+
+
+ispiring tekst werkend krijgen met API en dan voor testing vergelijkbaar maken
+API backend verbeteren!
+
+
+
+GPU kopen en met stable diffusion mooie dingen maken
+
+
+
+iets van een reference naar  teletekst telegram bot? (ook afmaken!)
+..some reddit bot
+
+
 
