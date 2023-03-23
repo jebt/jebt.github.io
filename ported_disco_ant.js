@@ -137,8 +137,11 @@ function changePixel() {
 
 function setup() {
   frameRate(30);
-  let canvas = createCanvas(windowWidth, windowHeight);
+  //   let canvas = createCanvas(windowWidth, windowHeight);
+  let canvasSize = minWindowSize();
+  let canvas = createCanvas(canvasSize, canvasSize);
   canvas.parent('sketch-holder');
+  setTimeout(windowResizedTwo, 100);
 
   // preset(0);
   img = createImage(width, height);
@@ -257,3 +260,12 @@ function keyPressed() {
 //     resizeCanvas(windowWidth, windowHeight);
 // }
 
+function windowResizedTwo() {
+    let canvasSize = minWindowSize();
+    resizeCanvas(canvasSize, canvasSize);
+}
+
+function minWindowSize() {
+    return min(windowWidth, windowHeight);
+}
+  
