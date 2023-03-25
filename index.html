@@ -1,90 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-
-  <!-- <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Jebt Website"> -->
-
-  <!-- iOS meta tags & icons -->
-  <!-- <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="jebtsite">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png"> -->
-
-  <!-- Favicon -->
-  <!-- <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>jebtsite</title>
-  <link rel="manifest" href="manifest.json">
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '1826721586';
-  </script> -->
-  <!-- This script adds the flutter initialization JS code -->
-  <!-- <script src="flutter.js" defer></script> -->
-
-  <!-- wild start -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JebtSite</title>
-  <!-- Link to the p5.js library using a CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-  <!-- Link to your sketch.js file -->
-  <script src="ported_disco_ant.js"></script>
-  <!-- wild end -->
-
-
-
+  <title>p5.js Sketches</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    a {
+      color: lightblue; /* Unvisited link color */
+    }
+    a:visited {
+      color: lightgreen; /* Visited link color */
+    }
+    a:hover {
+      color: orange; /* Link hover color */
+    }
+    a.active {
+      color: red; /* Active link color */
+      font-weight: bold; /* Make the active link bold */
+    }
+  </style>
 </head>
-<body>
-  <!-- <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
-        }
+<body id="main-body">
+  <h1>p5.js Sketches (Ported from Processing 3)</h1>
+  <ul>
+    <li><a href="#" onclick="loadSketchAndSetActive(this, 'sketches/disco_ant.html')">Disco Ant</a></li>
+    <li><a href="#" onclick="loadSketchAndSetActive(this, 'sketches/langtons_ant.html')">Langton's Ant</a></li>
+    <li><a href="#" onclick="loadSketchAndSetActive(this, 'sketches/loading_commet.html')">Loading Commet</a></li>
+    <!-- Add more sketches as needed -->
+  </ul>
+  <!-- <iframe id="sketch-iframe" width="640" height="480" frameborder="0" scrolling="no"></iframe> -->
+  <iframe id="sketch-iframe" frameborder="0" scrolling="no">
+  </iframe>
+  <script>
+    function loadSketch(sketchFile) {
+      const iframe = document.getElementById('sketch-iframe');
+      iframe.src = sketchFile;
+    }
+
+    function loadSketchAndSetActive(link, sketchPath) {
+      // Remove the 'active' class from all links
+      document.querySelectorAll('a').forEach(function(el) {
+        el.classList.remove('active');
       });
+
+      // Add the 'active' class to the clicked link
+      link.classList.add('active');
+
+      // Load the sketch
+      let iframe = document.getElementById('sketch-iframe');
+      loadSketch(sketchPath);
+    }
+
+
+
+    window.addEventListener('message', function(event) {
+      if (event.data.type === 'sketchLoaded') {
+        console.log("width:");
+        console.log(event.data.width);
+        console.log("height:");
+        console.log(event.data.height);
+        const iframe = document.getElementById('sketch-iframe');
+        const mainBody = document.getElementById('main-body');
+
+        // iframe.style.height = 'auto';
+        // iframe.style.width = 'auto';
+
+        iframe.width = event.data.width;
+        iframe.height = event.data.height;
+
+        // if (iframe.width > window.innerWidth || iframe.height > window.innerHeight) {
+        //     mainBody.style.overflow = 'auto';
+        // } else {
+        //     mainBody.style.overflow = 'hidden';
+        // }
+
+
+      }
     });
-  </script> -->
-
-<style>
-  body {
-    background-color: black;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
-
-<div id="sketch-holder"></div>
-
-
-<!-- wild start -->
-<!-- <h1>My p5.js Sketch</h1> -->
-<!-- wild end -->
+  </script>
 </body>
 </html>

@@ -139,7 +139,7 @@ function setup() {
   frameRate(30);
   //   let canvas = createCanvas(windowWidth, windowHeight);
   let canvasSize = minWindowSize();
-  let canvas = createCanvas(canvasSize, canvasSize);
+  let canvas = createCanvas(canvasSize-1, canvasSize-1);
   canvas.parent('sketch-holder');
   setTimeout(windowResizedTwo, 100);
 
@@ -262,7 +262,7 @@ function keyPressed() {
 
 function windowResizedTwo() {
     let canvasSize = minWindowSize();
-    resizeCanvas(canvasSize, canvasSize);
+    resizeCanvas(canvasSize-1, canvasSize-1);
 }
 
 function minWindowSize() {

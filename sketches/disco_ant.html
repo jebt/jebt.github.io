@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="disco_ant.js"></script> <!-- Change this to the corresponding sketch file name -->
+</head>
+<body>
+  <!-- <script>
+    window.addEventListener('load', function() {
+      parent.postMessage({
+        type: 'sketchLoaded',
+        // width: window.canvasWidth || window.innerWidth,
+        // height: window.canvasHeight || window.innerHeight
+        // width: window.canvasWidth || 899,
+        // height: window.canvasHeight || 899
+        width: window.canvasWidth,
+        height: window.canvasHeight
+      }, '*');
+    });
+  </script>   -->
+  <script>
+    window.addEventListener('load', function() {
+      // const canvasWidth = window._main.defaultCanvas0 ? window._main.defaultCanvas0.width : window.innerWidth;
+      // const canvasHeight = window._main.defaultCanvas0 ? window._main.defaultCanvas0.height : window.innerHeight;
+      // const canvasWidth = window._main.defaultCanvas0 ? window._main.defaultCanvas0.width : 900;
+      // const canvasHeight = window._main.defaultCanvas0 ? window._main.defaultCanvas0.height : 90;
+      // const canvasWidth = window.myp5.canvas ? window.myp5.canvas.width : window.innerWidth;
+      // const canvasHeight = window.myp5.canvas ? window.myp5.canvas.height : window.innerHeight;
+      // console.log(myp5.canvas)
+      // console.log(myp5.canvas)
+      // const canvasWidth = 80
+      // const canvasHeight = 800
+      const canvasWidth = myp5.canvas ? myp5.width : window.innerWidth;
+      const canvasHeight = myp5.canvas ? myp5.height : window.innerHeight;
+  
+      parent.postMessage({
+        type: 'sketchLoaded',
+        width: canvasWidth,
+        height: canvasHeight
+      }, '*');
+    });
+  </script>
+</body>
+</html>
