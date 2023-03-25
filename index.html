@@ -3,82 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>p5.js Sketches</title>
+  <title>JebtSite</title>
   <style>
     body {
       background-color: black;
       color: white;
+      text-align: center;
     }
-    a {
-      color: lightblue; /* Unvisited link color */
-    }
-    a:visited {
-      color: lightgreen; /* Visited link color */
-    }
-    a:hover {
-      color: orange; /* Link hover color */
-    }
-    a.active {
-      color: red; /* Active link color */
-      font-weight: bold; /* Make the active link bold */
+    #sketch-iframe {
+      border: 1px solid white;
+      display: block;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body id="main-body">
-  <h1>p5.js Sketches (Ported from Processing 3)</h1>
-  <ul>
-    <li><a href="#" onclick="loadSketchAndSetActive(this, 'sketches/disco_ant.html')">Disco Ant</a></li>
-    <li><a href="#" onclick="loadSketchAndSetActive(this, 'sketches/langtons_ant.html')">Langton's Ant</a></li>
-    <li><a href="#" onclick="loadSketchAndSetActive(this, 'sketches/loading_commet.html')">Loading Commet</a></li>
-    <!-- Add more sketches as needed -->
-  </ul>
-  <!-- <iframe id="sketch-iframe" width="640" height="480" frameborder="0" scrolling="no"></iframe> -->
-  <iframe id="sketch-iframe" width="800" height="450" frameborder="0" scrolling="no">
-  </iframe>
+  <select id="sketch-dropdown" onchange="onSketchChange()">
+    <!-- Options will be populated using JavaScript -->
+  </select>
+  <iframe id="sketch-iframe" width="800" height="450" frameborder="0" scrolling="no"></iframe>
   <script>
-    function loadSketch(sketchFile) {
-      const iframe = document.getElementById('sketch-iframe');
-      iframe.src = sketchFile;
-    }
-
-    function loadSketchAndSetActive(link, sketchPath) {
-      // Remove the 'active' class from all links
-      document.querySelectorAll('a').forEach(function(el) {
-        el.classList.remove('active');
+    // Load the list of sketches from the JSON file
+    fetch('sketches.json')
+      .then(response => response.json())
+      .then(sketches => {
+        const selectElement = document.getElementById('sketch-dropdown');
+        sketches.forEach((sketch, index) => {
+          const option = document.createElement('option');
+          option.value = sketch.file;
+          option.textContent = sketch.name;
+          if (index === 0) {
+            option.selected = true;
+            loadSketch(sketch.file);
+          }
+          selectElement.appendChild(option);
+        });
       });
 
-      // Add the 'active' class to the clicked link
-      link.classList.add('active');
-
-      // Load the sketch
-      let iframe = document.getElementById('sketch-iframe');
-      loadSketch(sketchPath);
+    function loadSketch(sketchFile) {
+      const iframe = document.getElementById('sketch-iframe');
+      const sketchUrl = 'sketches/' + sketchFile;
+      iframe.src = `sketch_template.html?sketch=${encodeURIComponent(sketchUrl)}`;
     }
 
-
+    function onSketchChange() {
+      const selectElement = document.getElementById('sketch-dropdown');
+      const selectedSketch = selectElement.value;
+      loadSketch(selectedSketch);
+    }
 
     window.addEventListener('message', function(event) {
       if (event.data.type === 'sketchLoaded') {
-        console.log("width:");
-        console.log(event.data.width);
-        console.log("height:");
-        console.log(event.data.height);
         const iframe = document.getElementById('sketch-iframe');
-        const mainBody = document.getElementById('main-body');
-
-        // iframe.style.height = 'auto';
-        // iframe.style.width = 'auto';
-
         iframe.width = event.data.width;
         iframe.height = event.data.height;
-
-        // if (iframe.width > window.innerWidth || iframe.height > window.innerHeight) {
-        //     mainBody.style.overflow = 'auto';
-        // } else {
-        //     mainBody.style.overflow = 'hidden';
-        // }
-
-
       }
     });
   </script>

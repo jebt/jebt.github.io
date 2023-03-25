@@ -16,10 +16,8 @@
     window.addEventListener('load', function() {
       parent.postMessage({
         type: 'sketchLoaded',
-        // width: window.canvasWidth || window.innerWidth,
-        // height: window.canvasHeight || window.innerHeight
-        width: width || 299,
-        height: height || 299
+        width: width,
+        height: height
       }, '*');
     });
   </script>  
