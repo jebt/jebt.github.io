@@ -1,11 +1,11 @@
 [
     {
-        "name": "Loading Comet",
-        "file": "loading_comet.js"
-    },
-    {
         "name": "Disco Ant",
         "file": "disco_ant.js"
+    },
+    {
+        "name": "Loading Comet",
+        "file": "loading_comet.js"
     },
     {
         "name": "Langton's Ant",
