@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<!--
+It looks like iframe is 3x slower than without iframe (atleast for disco_ant), check if it is better with a seperate HTML per sketch.
+If not than maybe look for an alternative that doesn't involve iframe?
+-->
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,7 +27,7 @@
   <select id="sketch-dropdown" onchange="onSketchChange()">
     <!-- Options will be populated using JavaScript -->
   </select>
-  <iframe id="sketch-iframe" width="800" height="450" frameborder="0" scrolling="no"></iframe>
+  <iframe id="sketch-iframe" width="600" height="600" frameborder="0" scrolling="no"></iframe>
   <script>
     // Load the list of sketches from the JSON file
     fetch('sketches.json')

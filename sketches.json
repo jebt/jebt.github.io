@@ -1,5 +1,9 @@
 [
     {
+        "name": "Noise Worm",
+        "file": "noise_worm.js"
+    },
+    {
         "name": "Disco Ant",
         "file": "disco_ant.js"
     },
@@ -10,5 +14,9 @@
     {
         "name": "Langton's Ant",
         "file": "langtons_ant.js"
+    },
+    {
+        "name": "blank",
+        "file": "blank.js"
     }
 ]

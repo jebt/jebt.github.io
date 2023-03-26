@@ -41,13 +41,10 @@ let countDirA = true;
 let countDirDark = true;
 
 
-
-
 function changePixel() {
-  
-  dark2 = Math.floor(dist(x, y, width/2, height/2));
-  bright = 150 - Math.floor(dist(x, y, (width/2), (height/2)));
-  
+  dark2 = Math.floor(dist(x, y, width / 2, height / 2));
+  bright = 150 - Math.floor(dist(x, y, (width / 2), (height / 2)));
+
   if (step % 1 === 0) {
     if (countDirR) {
       R += 0.07;
@@ -89,7 +86,7 @@ function changePixel() {
       }
     }
   }
-  
+
   if (step % 9 === 0) {
     if (countDirDark) {
       dark++;
@@ -103,7 +100,7 @@ function changePixel() {
       }
     }
   }
-  
+
   if (step % 127 === 0) {
     if (countDirA) {
       A++;
@@ -117,11 +114,11 @@ function changePixel() {
       }
     }
   }
-  
+
   disco = color(Math.floor(R - (dark + dark2) + bright), Math.floor(G - (dark + dark2) + bright), Math.floor(B - (dark + dark2) + bright), A);
 
-  switch(grid[x][y]) {
-    case 0:  
+  switch (grid[x][y]) {
+    case 0:
       img.set(x, y, disco);
       break;
     case 1:
@@ -131,15 +128,11 @@ function changePixel() {
 }
 
 
-
-
-
-
 function setup() {
   frameRate(30);
   createCanvas(600, 600);
   background(0)
-  
+
 
   // preset(0);
   img = createImage(width, height);
@@ -157,7 +150,7 @@ function setup() {
 
 
 function turn() {
-  switch(grid[x][y]) {
+  switch (grid[x][y]) {
     case 0:
       dirChange(s0);
       break;
@@ -190,7 +183,7 @@ function changeState() {
 }
 
 function move() {
-  switch(dir) {
+  switch (dir) {
     case NORTH:
       y--;
       break;
@@ -217,7 +210,6 @@ function move() {
   }
 }
 
-
 function feedBack() {
   console.log("\r\n\r\n\r\nStep#:      " + (step / 1000000000) + " Billion");
   console.log("fps:        " + (frameRate()));
@@ -233,24 +225,25 @@ function draw() {
   }
 
   if (frameCount % 100 === 0) {
-    feedBack();
+    // feedBack();
+    console.log("fps: " + (frameRate()));
+    console.log("frame number: " + frameCount);
   }
 
   img.updatePixels();
   image(img, 0, 0);
 }
 
-function mouseClicked() {
-  console.log("Saving frame!");
-  saveFrame();
-}
+// function mouseClicked() {
+//   console.log("Saving frame!");
+//   saveFrame();
+// }
 
-function keyPressed() {
-  if (key === 's') {
-    noLoop();
-  }
-  if (key === 'd') {
-    loop();
-  }
-}
-
+// function keyPressed() {
+//   if (key === 's') {
+//     noLoop();
+//   }
+//   if (key === 'd') {
+//     loop();
+//   }
+// }
