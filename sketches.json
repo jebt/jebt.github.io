@@ -1,5 +1,9 @@
 [
     {
+        "name": "Lissajous",
+        "file": "lissajous.js"
+    },
+    {
         "name": "Noise Worm",
         "file": "noise_worm.js"
     },
