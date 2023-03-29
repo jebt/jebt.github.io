@@ -16,6 +16,17 @@
         "file": "langtons_ant.js"
     },
     {
+        "name": "Generalized Ant",
+        "file": "generalized_ant.js"
+    },
+
+
+
+
+
+
+
+    {
         "name": "blank",
         "file": "blank.js"
     }
